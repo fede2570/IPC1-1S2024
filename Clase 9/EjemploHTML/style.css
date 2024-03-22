@@ -1,0 +1,17 @@
+p {
+    color: blue;
+}
+
+.parrafo2 {
+    color: red;
+}
+
+#parrafo3 {
+    color: cyan;
+}
+
+.btn1 {
+    background-color: gold;
+    color: white;
+    font-size: 150px;
+}
