@@ -15,7 +15,7 @@ const registrarUsuarios = (req, res) => {
     const existeUsuario = listaUsuarios.find(user => user.getCarnet() === carnet)
 
     if (existeUsuario != undefined) {
-        return res.json({msg: 'El usuario ya existe'})
+        return res.json({error: 'El usuario ya existe'})
     }
     
     listaUsuarios.push(usuario);
@@ -33,7 +33,7 @@ const loginUsuarios = (req, res) => {
     const usuario = listaUsuarios.find(user => user.getCarnet() === carnet && user.getPassword() === password)
 
     if (usuario == undefined) {
-        return res.json({msg: 'Error de usuario o contraseña'})
+        return res.json({error: 'Error de usuario o contraseña'})
     }
     res.json({msg: 'Se logueo correctamente'})
 }
