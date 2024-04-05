@@ -23,7 +23,7 @@ function funcion1(param1) {
 
 }
 
-const funcion2 = funcion1(param1) {
+const funcion2 = function(param1) {
 
 }
 
