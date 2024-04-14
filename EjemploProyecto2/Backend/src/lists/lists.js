@@ -1,5 +1,7 @@
 const listaUsuarios = []
+const listaPublicaciones = []
 
 module.exports = {
-    listaUsuarios
+    listaUsuarios,
+    listaPublicaciones
 }

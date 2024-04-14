@@ -9,13 +9,13 @@ const registrarUsuarios = (req, res) => {
     
     //const carnet = req.body.carnet;
     //const nombres = req.body.nombres;
-    const {carnet, nombres, apellidos, genero, facultad, carrera, correo, password} = req.body;
-    let usuario = new Usuario(carnet, nombres, apellidos, genero, facultad, carrera, correo, password)
+    const {carnet, nombres, password} = req.body;
+    let usuario = new Usuario(carnet, nombres, password)
 
     const existeUsuario = listaUsuarios.find(user => user.getCarnet() === carnet)
 
     if (existeUsuario != undefined) {
-        return res.json({error: 'El usuario ya existe'})
+        return res.json({msg: 'El usuario ya existe'})
     }
     
     listaUsuarios.push(usuario);
@@ -33,9 +33,9 @@ const loginUsuarios = (req, res) => {
     const usuario = listaUsuarios.find(user => user.getCarnet() === carnet && user.getPassword() === password)
 
     if (usuario == undefined) {
-        return res.json({error: 'Error de usuario o contraseña'})
+        return res.json({ok: false, msg: 'Error de usuario o contraseña'})
     }
-    res.json({msg: 'Se logueo correctamente'})
+    res.json({user: usuario, ok: true, msg: 'Se logueo correctamente'})
 }
 
 
