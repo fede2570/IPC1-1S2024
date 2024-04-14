@@ -36,7 +36,7 @@ const Login = () => {
             <div className="container grey lighten-4"
                 style={{padding: '2%', marginTop: '4%'}}>
 
-                <h1>Inicion Sesion</h1>
+                <h1>Inicio Sesion</h1>
 
                 <div className="row">
                     <div className="col s12">
