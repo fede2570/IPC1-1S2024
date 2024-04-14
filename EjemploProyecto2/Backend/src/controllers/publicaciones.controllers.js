@@ -2,7 +2,7 @@ const {Publicacion} = require('../models/Publicacion')
 const {listaPublicaciones} = require('../lists/lists')
 
 const crear_publicacion = (req, res) => {
-
+    //codigo es el codigo o carnet de la persona
     const {codigo, descripcion, imagen} = req.body;
 
     let publicacion = new Publicacion(codigo, descripcion, imagen);
