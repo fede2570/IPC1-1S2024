@@ -3,7 +3,7 @@ import Navigation from "./NavBar";
 import axios from "axios";
 
 
-const CrearPublciacion = () => {
+const CrearPublicacion = () => {
 
     const {carnet, nombres, password} = JSON.parse(localStorage.getItem('usuario'))
 
@@ -82,4 +82,4 @@ const CrearPublciacion = () => {
 
 }
 
-export default CrearPublciacion;
+export default CrearPublicacion;
