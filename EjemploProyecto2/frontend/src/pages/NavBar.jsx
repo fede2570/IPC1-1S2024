@@ -15,7 +15,7 @@ const Navigation = () => {
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li><Link to={'/crear-publicacion'}>Crear Publicacion</Link></li>
                         <li><Link to={'/publicaciones'}>Ver Publicaciones</Link></li>
-                        <li><button onClick={handleLogout}>Cerrar Sesion</button></li>
+                        <li><Link onClick={handleLogout}>Cerrar Sesion</Link></li>
                     </ul>
                 </div>
             </nav>
