@@ -4,8 +4,7 @@ import viteLogo from '/vite.svg'
 //import './App.css'
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Login from './pages/Login';
-import Publicaciones from './pages/Publicacion';
-import Publicacion from './pages/Publicaciones';
+import Publicaciones from './pages/Publicaciones';
 import CrearPublciacion from './pages/CrearPublicacion';
 import Registro from './pages/Registro';
 //import '@materializecss/materialize/dist/css/materialize.css';
@@ -19,7 +18,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path={'/login'} element={<Login/>} />
-            <Route path={'/publicaciones'} element={<Publicacion/>} />
+            <Route path={'/publicaciones'} element={<Publicaciones/>} />
             <Route path={'/crear-publicacion'} element={<CrearPublciacion/>}/>
             <Route path={'/registro'} element={<Registro/>}/>
           </Routes>
