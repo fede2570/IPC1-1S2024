@@ -7,8 +7,8 @@ import Login from './pages/Login';
 import Publicaciones from './pages/Publicaciones';
 import CrearPublicacion from './pages/CrearPublicacion';
 import Registro from './pages/Registro';
-//import '@materializecss/materialize/dist/css/materialize.css';
-//import '@materializecss/materialize/dist/js/materialize';
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.min.js';
 
 function App() {
 
