@@ -10,9 +10,9 @@ const registrarUsuarios = (req, res) => {
     //const carnet = req.body.carnet;
     //const nombres = req.body.nombres;
     const {carnet, nombres, password} = req.body;
-    let usuario = new Usuario(carnet, nombres, password)
+    let usuario = new Usuario(parseInt(carnet), nombres, password)
 
-    const existeUsuario = listaUsuarios.find(user => user.getCarnet() === carnet)
+    const existeUsuario = listaUsuarios.find(user => user.getCarnet() === parseInt(carnet))
 
     if (existeUsuario != undefined) {
         return res.json({msg: 'El usuario ya existe'})
@@ -30,7 +30,7 @@ const verUsuarios = (req, res) => {
 const loginUsuarios = (req, res) => {
     const {carnet, password} = req.body;
 
-    const usuario = listaUsuarios.find(user => user.getCarnet() === carnet && user.getPassword() === password)
+    const usuario = listaUsuarios.find(user => user.getCarnet() === parseInt(carnet) && user.getPassword() === password)
 
     if (usuario == undefined) {
         return res.json({ok: false, msg: 'Error de usuario o contraseña'})
@@ -38,9 +38,47 @@ const loginUsuarios = (req, res) => {
     res.json({user: usuario, ok: true, msg: 'Se logueo correctamente'})
 }
 
+const cargarUsuarios = (req, res) => {
+    const json = req.body;
+
+    for (user of json) {
+        listaUsuarios.push(new Usuario(user.carnet, user.nombres, user.password))
+    }
+    res.json({msg: "La carga de usuarios fue realizada correctamente"})
+}
+
+const eliminar_usuario = (req, res) => {
+    //http://localhost:3000/eliminar-usuario/2024
+    const carnet = req.params.carnet;
+
+    const posicionUsuario = listaUsuarios.findIndex(user => user.getCarnet() === parseInt(carnet))
+
+    if (posicionUsuario === -1) {
+        return res.json({msg: "El usuario no existe"})
+    }
+    listaUsuarios.splice(posicionUsuario, 1)
+    res.json({msg: "El usuario ha sido eliminado"})
+}
+
+const editar_usuario = (req, res) => {
+    const {carnet, nombres, password} = req.body;
+
+    const posicionUsuario = listaUsuarios.findIndex(user => user.getCarnet() === parseInt(carnet))
+
+    if (posicionUsuario === -1) {
+        return res.json({msg: 'El usuario no existe'})
+    }
+    listaUsuarios[posicionUsuario].setNombres(nombres)
+    listaUsuarios[posicionUsuario].setPassword(password)
+    res.json({msg: 'El usuario ha sido editado correctamente'})
+}
+
 
 module.exports = {
     registrarUsuarios,
     verUsuarios,
-    loginUsuarios
+    loginUsuarios,
+    cargarUsuarios,
+    eliminar_usuario,
+    editar_usuario
 }

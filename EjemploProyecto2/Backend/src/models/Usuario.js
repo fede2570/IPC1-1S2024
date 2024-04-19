@@ -10,10 +10,6 @@ class Usuario {
         return this.carnet;
     }
 
-    setCarnet(carnet) {
-        this.carnet = carnet;
-    }
-
     getNombres() {
         return this.nombres;
     }
@@ -24,6 +20,10 @@ class Usuario {
 
     getPassword() {
         return this.password;
+    }
+
+    setPassword(password) {
+        this.password = password
     }
 }
 

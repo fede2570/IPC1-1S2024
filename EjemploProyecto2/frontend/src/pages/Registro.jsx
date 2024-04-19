@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios';
 
 const Registro = () => {
@@ -31,6 +31,10 @@ const Registro = () => {
             console.log(error)
         })
     }
+
+    useEffect(() => {
+        M.AutoInit();
+    }, [])
 
     return (
         <>
